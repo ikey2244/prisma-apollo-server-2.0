@@ -1,0 +1,30 @@
+{
+  "name": "prisma-apollo2",
+  "version": "1.0.0",
+  "description": "prisma apollo 2 server boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "prisma deploy --env-file .env",
+    "start": "env-cmd -f .env nodemon src/index.js --ext js,graphql --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikey2244/prisma-apollo2.git"
+  },
+  "author": "Isaac Weber",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.9.3",
+    "dotenv": "^8.1.0",
+    "env-cmd": "^10.0.1",
+    "graphql": "^14.5.4",
+    "graphql-import": "^0.7.1",
+    "prisma-client-lib": "^1.34.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.19.2"
+  }
+}

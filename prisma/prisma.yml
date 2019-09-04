@@ -1,0 +1,8 @@
+endpoint: ${env:PRISMA_ENDPOINT}
+datamodel: datamodel.graphql
+# uncomment next line to protect your prisma database
+# secrets: 
+
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
