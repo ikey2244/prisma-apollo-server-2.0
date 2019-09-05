@@ -1,4 +1,12 @@
 type User {
   id: ID! @id
   name: String!
+  posts: [Post]!
+}
+
+type Post {
+  id: ID! @id
+  title: String!
+  body: String!
+  author: User!
 }

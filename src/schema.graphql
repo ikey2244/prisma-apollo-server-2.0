@@ -1,8 +1,29 @@
+# types
 type Query {
-  users: User
+  user(id: ID): User!
+  users: [User!]!
+  posts: [Post!]!
+}
+
+type Mutation {
+  createPost(data: CreatePostInput): Post!
 }
 
 type User {
   id: ID!
   name: String!
+  posts: [Post]!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  body: String!
+  author: User!
+}
+
+# inputs
+input CreatePostInput {
+  title: String!
+  body: String!
 }

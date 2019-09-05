@@ -5,14 +5,13 @@ import { prisma } from '../src/generated/prisma-client'
 import { resolvers } from './resolvers/index'
 
 const typeDefs = importSchema('src/schema.graphql')
-
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context(request) {
+    context: (req) => {
         return {
-            prisma,
-            request
+            ...req,
+            prisma
         }
     }
 })

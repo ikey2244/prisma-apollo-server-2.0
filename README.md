@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to prisma-apollo2 👋</h1>
+<h1 align="center">Welcome to prisma-apollo-server2.0 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/ikey2244/prisma-apollo2#readme">
@@ -24,9 +24,21 @@ npm install
 
 ## Usage
 
+
+```sh
+docker-compose up -d 
+```
+
+```sh
+prisma deploy
+```
+
+Prisma endpoint @ http://localhost:4466/
+
 ```sh
 npm start
 ```
+Node endpoint @ http://localhost:4000/
 
 ## Author
 
