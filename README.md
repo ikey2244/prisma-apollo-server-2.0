@@ -24,21 +24,125 @@ npm install
 
 ## Usage
 
-
+1. cd into prisma folder
+```sh
+cd prisma
+```
+2. start docker
 ```sh
 docker-compose up -d 
 ```
-
+3. create an .env file in the root of your directory and paste what is below
+```
+PRISMA_ENDPOINT=http://localhost:4466/
+PORT=4000
+```
+4. deploy datamodel to prisma server
+```sh
+cd ..
+```
 ```sh
 prisma deploy
 ```
 
-Prisma endpoint @ http://localhost:4466/
-
+5. start node server
 ```sh
 npm start
 ```
+Prisma endpoint @ http://localhost:4466/
+
 Node endpoint @ http://localhost:4000/
+
+## Example Mutations
+create a user
+```graphql
+mutation {
+  createUser(
+    data: {
+      name: "Isaac"
+    }
+  ) {
+    id
+    name
+  }
+}
+```
+create a post and attach a user
+```graphql
+mutation {
+  createPost(
+    data: {
+      title: "Isaacs posts"
+      body: "cool freaking post"
+    }
+    id: "ck06qsygg007t0798q8dmy757" <-- user id
+  ) {
+    title
+    body
+    author {
+      id
+      name
+    }
+  }
+}
+```
+
+## Example Queries
+
+all users and all posts
+```graphql
+{
+  users {
+    name
+    id
+    posts {
+      title
+      body
+    }
+  }
+}
+```
+all posts and all authors
+```graphql
+{
+  posts {
+    body
+    title
+    author {
+      id
+      name
+    }
+  }
+}
+```
+specific users posts
+```graphql
+{
+  user(
+    id: "ck06qsygg007t0798q8dmy757"
+  ) {
+    name
+    posts {
+      title
+      body
+    }
+  }
+}
+```
+specific post and user associated
+```graphql
+{
+  post(
+    id: "ck06qxivv00ae07987baof3xk"
+  ) {
+    title
+    body
+    author {
+      name
+    }
+  }
+}
+```
 
 ## Author
 
