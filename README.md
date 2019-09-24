@@ -37,6 +37,11 @@ docker-compose up -d
 PRISMA_ENDPOINT=http://localhost:4466/
 PORT=4000
 ```
+(For Windows)
+```
+PRISMA_ENDPOINT=http://192.168.99.100:4466/
+PORT=4000
+```
 4. deploy datamodel to prisma server
 ```sh
 cd ..
